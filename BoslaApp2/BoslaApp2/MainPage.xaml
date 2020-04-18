@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BoslaApp2.MainPage">
+
+    <StackLayout>
+        <Button Text="Add course"
+                Command="{Binding AddCourseCommand}" />
+
+        <ListView ItemsSource="{Binding Courses}"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame CornerRadius="10" 
+                                   Padding="5"
+                                   IsClippedToBounds="True"
+                                   Margin="10,10,10,10"
+                               BorderColor="DarkGray">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontSize="Medium" TextColor="DarkGray" />
+                                <Label Text="{Binding Price}" FontSize="Medium" TextColor="Blue" />
+                                <Label Text="{Binding Trainer_Id}" FontSize="Medium" TextColor="Blue" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </StackLayout>
+
+</ContentPage>

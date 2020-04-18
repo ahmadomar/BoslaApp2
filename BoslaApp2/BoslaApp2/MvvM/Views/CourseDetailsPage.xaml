@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BoslaApp2.MvvM.Views.CourseDetailsPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+
+                <StackLayout Padding="5" Spacing="10">
+                    <Label Text="Title:" />
+                    <Entry Text="{Binding Title, Mode=TwoWay}"/>
+
+                    <Label Text="Trainer:" />
+                    <Entry Text="{Binding Trainer, Mode=TwoWay}" IsReadOnly="True" />
+
+                    <Label Text="Price:" />
+                    <Entry Text="{Binding Price, Mode=TwoWay}"/>
+
+                    <Label Text="Description:" />
+                    <Editor Text="{Binding Description, Mode=TwoWay}"
+                        HeightRequest="150"/>
+
+                    <Button BackgroundColor="Green" TextColor="White" 
+                        Text="Update Course" 
+                        Command="{Binding UpdateCourseCommand}" />
+
+                    <Button BackgroundColor="Red" TextColor="White" 
+                        Text="Delete Course" 
+                        Command="{Binding DeleteCourseCommand}" />
+
+                    <Label Text="{Binding Message}" TextColor="Black" />
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

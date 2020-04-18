@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BoslaApp2.MvvM.Views.AddCoursePage"
+             Title="Add course">
+    <ContentPage.Content>
+
+        <ScrollView>
+            
+            <StackLayout Padding="5" Spacing="10">
+                <Label Text="Title:" />
+                <Entry Text="{Binding Title, Mode=TwoWay}"/>
+
+                <Label Text="Price:" />
+                <Entry Text="{Binding Price, Mode=TwoWay}"/>
+
+                <Label Text="Description:" />
+                <Editor Text="{Binding Description, Mode=TwoWay}"
+                        HeightRequest="150"/>
+
+                <Label Text="Trainer:" />
+                <Picker ItemsSource="{Binding Trainers, Mode=TwoWay}"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedItem="{Binding SelectedTrainer}"/>
+
+
+                <Button BackgroundColor="Green" TextColor="White" 
+                        Text="Add Course" 
+                        Command="{Binding AddCourseCommand}" />
+
+                <Label Text="{Binding Message}" TextColor="Black" />
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
